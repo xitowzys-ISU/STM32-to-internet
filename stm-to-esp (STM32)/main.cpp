@@ -1,5 +1,6 @@
 #include "mbed.h"
 #include <chrono>
+#include <cstdint>
 
 #define MAXIMUM_BUFFER_SIZE 32
 static BufferedSerial serial_port(PA_9, PA_10);
@@ -21,6 +22,7 @@ int main()
 
     bool btn_state = button.read();
 
+
     unsigned char p = ain.read_u16()>>8;
 
     while (1) {
@@ -37,7 +39,7 @@ int main()
 
         esp_serial.write(buf, 2);
 
-        ThisThread::sleep_for(2000ms);
+        ThisThread::sleep_for(1000ms);
     }
 
 } 
